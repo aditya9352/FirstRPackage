@@ -44,7 +44,7 @@ make_filename <- function(year) {
 #' where each file is a data frame that's part of the list.
 #'
 #' @import magrittr
-#' @import dplyr
+#' @importFrom dplyr mutate select
 #'
 #' @param years A vector of years.
 #'
@@ -72,8 +72,8 @@ fars_read_years <- function(years) {
 #'
 #' This function calculates a summary of total accidents by month and year.
 #'
-#' @import dplyr
-#' @import tidyr
+#' @importFrom dplyr bind_rows group_by summarize
+#' @importFrom tidyr spread
 #'
 #' @inheritParams fars_read_years
 #'
@@ -96,7 +96,7 @@ fars_summarize_years <- function(years) {
 #' then a message "no accidents to plot" would vbe shown. The "state.num" should be valid otherwise the function would stop
 #' and show the message "invalid STATE number: 'state.num'".
 #'
-#' @importFrom dplyr filter
+#' @import dplyr
 #' @importFrom maps map
 #' @importFrom graphics points
 #'

@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 inst/doc
+vignettes/accident_2013.csv.bz2
+vignettes/accident_2014.csv.bz2
+vignettes/accident_2015.csv.bz2
