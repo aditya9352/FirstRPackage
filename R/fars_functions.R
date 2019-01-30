@@ -96,7 +96,7 @@ fars_summarize_years <- function(years) {
 #' then a message "no accidents to plot" would vbe shown. The "state.num" should be valid otherwise the function would stop
 #' and show the message "invalid STATE number: 'state.num'".
 #'
-#' @import dplyr
+#' @importFrom dplyr filter
 #' @importFrom maps map
 #' @importFrom graphics points
 #'
