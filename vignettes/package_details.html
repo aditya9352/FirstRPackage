@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Aditya Sharma" />
+
+<meta name="date" content="2019-01-30" />
+
+<title>Using the package</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Using the package</h1>
+<h4 class="author"><em>Aditya Sharma</em></h4>
+<h4 class="date"><em>2019-01-30</em></h4>
+
+
+
+<p>This package helps users to read the files in the directory and summarise number of accidents by month and year. The package contains the functions fars_read(), make_filename(), fars_read_years(), fars_summarize_years() and fars_map_state().</p>
+<p>We’ll be explaining each function with examples.</p>
+<div id="fars_read" class="section level3">
+<h3>fars_read()</h3>
+<p>This is a simple function that reads a file by taking filename as input. If a filename doesn’t exist in the working directory then the function stops with the message “file ‘filename’ does not exist”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fars_read</span>(<span class="st">'accident_2013.csv.bz2'</span>)
+<span class="co">#&gt; # A tibble: 30,202 x 50</span>
+<span class="co">#&gt;    STATE ST_CASE VE_TOTAL VE_FORMS PVH_INVL  PEDS PERNOTMVIT PERMVIT</span>
+<span class="co">#&gt;    &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;    &lt;int&gt; &lt;int&gt;      &lt;int&gt;   &lt;int&gt;</span>
+<span class="co">#&gt;  1     1   10001        1        1        0     0          0       8</span>
+<span class="co">#&gt;  2     1   10002        2        2        0     0          0       2</span>
+<span class="co">#&gt;  3     1   10003        1        1        0     0          0       1</span>
+<span class="co">#&gt;  4     1   10004        1        1        0     0          0       3</span>
+<span class="co">#&gt;  5     1   10005        2        2        0     0          0       3</span>
+<span class="co">#&gt;  6     1   10006        2        2        0     0          0       3</span>
+<span class="co">#&gt;  7     1   10007        1        1        0     0          0       1</span>
+<span class="co">#&gt;  8     1   10008        2        2        0     0          0       2</span>
+<span class="co">#&gt;  9     1   10009        1        1        0     0          0       1</span>
+<span class="co">#&gt; 10     1   10010        2        2        0     0          0       4</span>
+<span class="co">#&gt; # ... with 30,192 more rows, and 42 more variables: PERSONS &lt;int&gt;,</span>
+<span class="co">#&gt; #   COUNTY &lt;int&gt;, CITY &lt;int&gt;, DAY &lt;int&gt;, MONTH &lt;int&gt;, YEAR &lt;int&gt;,</span>
+<span class="co">#&gt; #   DAY_WEEK &lt;int&gt;, HOUR &lt;int&gt;, MINUTE &lt;int&gt;, NHS &lt;int&gt;, ROAD_FNC &lt;int&gt;,</span>
+<span class="co">#&gt; #   ROUTE &lt;int&gt;, TWAY_ID &lt;chr&gt;, TWAY_ID2 &lt;chr&gt;, MILEPT &lt;int&gt;,</span>
+<span class="co">#&gt; #   LATITUDE &lt;dbl&gt;, LONGITUD &lt;dbl&gt;, SP_JUR &lt;int&gt;, HARM_EV &lt;int&gt;,</span>
+<span class="co">#&gt; #   MAN_COLL &lt;int&gt;, RELJCT1 &lt;int&gt;, RELJCT2 &lt;int&gt;, TYP_INT &lt;int&gt;,</span>
+<span class="co">#&gt; #   WRK_ZONE &lt;int&gt;, REL_ROAD &lt;int&gt;, LGT_COND &lt;int&gt;, WEATHER1 &lt;int&gt;,</span>
+<span class="co">#&gt; #   WEATHER2 &lt;int&gt;, WEATHER &lt;int&gt;, SCH_BUS &lt;int&gt;, RAIL &lt;chr&gt;,</span>
+<span class="co">#&gt; #   NOT_HOUR &lt;int&gt;, NOT_MIN &lt;int&gt;, ARR_HOUR &lt;int&gt;, ARR_MIN &lt;int&gt;,</span>
+<span class="co">#&gt; #   HOSP_HR &lt;int&gt;, HOSP_MN &lt;int&gt;, CF1 &lt;int&gt;, CF2 &lt;int&gt;, CF3 &lt;int&gt;,</span>
+<span class="co">#&gt; #   FATALS &lt;int&gt;, DRUNK_DR &lt;int&gt;</span></code></pre></div>
+</div>
+<div id="make_filename" class="section level3">
+<h3>make_filename()</h3>
+<p>This is a simple function that creates a filename in the “.csv.bz2” format starting with “accident_” for a given year.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">make_filename</span>(<span class="dv">2018</span>)
+<span class="co">#&gt; [1] &quot;accident_2018.csv.bz2&quot;</span></code></pre></div>
+</div>
+<div id="fars_read_years" class="section level3">
+<h3>fars_read_years()</h3>
+<p>This function let’s us read multiple files by just inputting the years for which we want to read files. It generates a list of data frames, where each file is a data frame that’s part of the list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fars_read_years</span>(<span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2014</span>, <span class="dv">2015</span>))
+<span class="co">#&gt; Loading required package: magrittr</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; # A tibble: 30,202 x 2</span>
+<span class="co">#&gt;    MONTH  year</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1     1 2013.</span>
+<span class="co">#&gt;  2     1 2013.</span>
+<span class="co">#&gt;  3     1 2013.</span>
+<span class="co">#&gt;  4     1 2013.</span>
+<span class="co">#&gt;  5     1 2013.</span>
+<span class="co">#&gt;  6     1 2013.</span>
+<span class="co">#&gt;  7     1 2013.</span>
+<span class="co">#&gt;  8     1 2013.</span>
+<span class="co">#&gt;  9     1 2013.</span>
+<span class="co">#&gt; 10     1 2013.</span>
+<span class="co">#&gt; # ... with 30,192 more rows</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; # A tibble: 30,056 x 2</span>
+<span class="co">#&gt;    MONTH  year</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1     1 2014.</span>
+<span class="co">#&gt;  2     1 2014.</span>
+<span class="co">#&gt;  3     1 2014.</span>
+<span class="co">#&gt;  4     1 2014.</span>
+<span class="co">#&gt;  5     1 2014.</span>
+<span class="co">#&gt;  6     1 2014.</span>
+<span class="co">#&gt;  7     1 2014.</span>
+<span class="co">#&gt;  8     1 2014.</span>
+<span class="co">#&gt;  9     1 2014.</span>
+<span class="co">#&gt; 10     1 2014.</span>
+<span class="co">#&gt; # ... with 30,046 more rows</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[3]]</span>
+<span class="co">#&gt; # A tibble: 32,166 x 2</span>
+<span class="co">#&gt;    MONTH  year</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1     1 2015.</span>
+<span class="co">#&gt;  2     1 2015.</span>
+<span class="co">#&gt;  3     1 2015.</span>
+<span class="co">#&gt;  4     1 2015.</span>
+<span class="co">#&gt;  5     1 2015.</span>
+<span class="co">#&gt;  6     1 2015.</span>
+<span class="co">#&gt;  7     1 2015.</span>
+<span class="co">#&gt;  8     1 2015.</span>
+<span class="co">#&gt;  9     1 2015.</span>
+<span class="co">#&gt; 10     1 2015.</span>
+<span class="co">#&gt; # ... with 32,156 more rows</span></code></pre></div>
+</div>
+<div id="fars_summarize_years" class="section level3">
+<h3>fars_summarize_years()</h3>
+<p>This function calculates a summary of total accidents by month and year.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fars_summarize_years</span>(<span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2014</span>, <span class="dv">2015</span>))
+<span class="co">#&gt; # A tibble: 12 x 4</span>
+<span class="co">#&gt;    MONTH `2013` `2014` `2015`</span>
+<span class="co">#&gt;    &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;</span>
+<span class="co">#&gt;  1     1   2230   2168   2368</span>
+<span class="co">#&gt;  2     2   1952   1893   1968</span>
+<span class="co">#&gt;  3     3   2356   2245   2385</span>
+<span class="co">#&gt;  4     4   2300   2308   2430</span>
+<span class="co">#&gt;  5     5   2532   2596   2847</span>
+<span class="co">#&gt;  6     6   2692   2583   2765</span>
+<span class="co">#&gt;  7     7   2660   2696   2998</span>
+<span class="co">#&gt;  8     8   2899   2800   3016</span>
+<span class="co">#&gt;  9     9   2741   2618   2865</span>
+<span class="co">#&gt; 10    10   2768   2831   3019</span>
+<span class="co">#&gt; 11    11   2615   2714   2724</span>
+<span class="co">#&gt; 12    12   2457   2604   2781</span></code></pre></div>
+</div>
+<div id="fars_map_state" class="section level3">
+<h3>fars_map_state()</h3>
+<p>This function let’s us show accidents by exact location in a state within a year on a map. If there are no accidents for a state in a year, then a message “no accidents to plot” would vbe shown. The “state.num” should be valid otherwise the function would stop and show the message “invalid STATE number: ‘state.num’”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fars_map_state</span>(<span class="dv">24</span>, <span class="dv">2013</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
