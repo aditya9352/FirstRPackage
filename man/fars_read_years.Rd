@@ -16,3 +16,7 @@ A list of data frames.
 This function let's us read multiple files by just inputting the years for which we want to read files. It generates a list of data frames,
 where each file is a data frame that's part of the list.
 }
+\examples{
+fars_read_years(c(2013, 2014, 2015))
+
+}

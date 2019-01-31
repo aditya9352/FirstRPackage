@@ -15,3 +15,7 @@ A filename for the given year.
 \description{
 This is a simple function that creates a filename in the ".csv.bz2" format starting with "accident_" for a given year.
 }
+\examples{
+make_filename(2018)
+
+}

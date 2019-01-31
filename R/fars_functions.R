@@ -10,7 +10,8 @@
 #'
 #' @return A data frame containing a representation of the data in the file.
 #'
-#' @example fars_read('accident_2013.csv.bz2')
+#' @examples
+#' fars_read("accident_2013.csv.bz2")
 #'
 #' @export
 fars_read <- function(filename) {
@@ -30,7 +31,8 @@ fars_read <- function(filename) {
 #'
 #' @return A filename for the given year.
 #'
-#' @example make_filename(2018)
+#' @examples
+#' make_filename(2018)
 #'
 #' @export
 make_filename <- function(year) {
@@ -50,7 +52,8 @@ make_filename <- function(year) {
 #'
 #' @return A list of data frames.
 #'
-#' @example fars_read_years(c(2013, 2014, 2015))
+#' @examples
+#' fars_read_years(c(2013, 2014, 2015))
 #'
 #' @export
 fars_read_years <- function(years) {
@@ -79,7 +82,8 @@ fars_read_years <- function(years) {
 #'
 #' @return A data frame summarising number of accidents by month and year.
 #'
-#' @example fars_summarize_years(c(2013, 2014, 2015))
+#' @examples
+#' fars_summarize_years(c(2013, 2014, 2015))
 #'
 #' @export
 fars_summarize_years <- function(years) {
@@ -105,7 +109,8 @@ fars_summarize_years <- function(years) {
 #'
 #' @return A map with accidents plotted on the map for the selected year and state number.
 #'
-#' @example fars_map_state(24, 2013)
+#' @examples
+#' fars_map_state(24, 2013)
 #'
 #' @export
 fars_map_state <- function(state.num, year) {

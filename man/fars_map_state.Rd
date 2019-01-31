@@ -19,3 +19,7 @@ This function let's us show accidents by exact location in a state within a year
 then a message "no accidents to plot" would vbe shown. The "state.num" should be valid otherwise the function would stop
 and show the message "invalid STATE number: 'state.num'".
 }
+\examples{
+fars_map_state(24, 2013)
+
+}

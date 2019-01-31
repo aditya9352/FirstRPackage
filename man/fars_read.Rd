@@ -16,3 +16,7 @@ A data frame containing a representation of the data in the file.
 This is a simple function that reads a file by taking filename as input. If a filename doesn't exist in the working directory then the function
 stops with the message "file 'filename' does not exist".
 }
+\examples{
+fars_read("accident_2013.csv.bz2")
+
+}
