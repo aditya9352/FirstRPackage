@@ -9,11 +9,11 @@ License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
 Imports: dplyr,
-magrittr,
-graphics,
-maps,
-readr,
-tidyr
+    magrittr,
+    graphics,
+    maps,
+    readr,
+    tidyr
 Suggests: knitr,
     rmarkdown,
     testthat
