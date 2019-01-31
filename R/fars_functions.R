@@ -11,7 +11,9 @@
 #' @return A data frame containing a representation of the data in the file.
 #'
 #' @examples
+#' \dontrun{
 #' fars_read("accident_2013.csv.bz2")
+#' }
 #'
 #' @export
 fars_read <- function(filename) {
@@ -32,7 +34,9 @@ fars_read <- function(filename) {
 #' @return A filename for the given year.
 #'
 #' @examples
+#' \dontrun{
 #' make_filename(2018)
+#' }
 #'
 #' @export
 make_filename <- function(year) {
@@ -45,7 +49,7 @@ make_filename <- function(year) {
 #' This function let's us read multiple files by just inputting the years for which we want to read files. It generates a list of data frames,
 #' where each file is a data frame that's part of the list.
 #'
-#' @import magrittr
+#' @importFrom magrittr %>%
 #' @importFrom dplyr mutate select
 #'
 #' @param years A vector of years.
@@ -53,11 +57,12 @@ make_filename <- function(year) {
 #' @return A list of data frames.
 #'
 #' @examples
+#' \dontrun{
 #' fars_read_years(c(2013, 2014, 2015))
+#' }
 #'
 #' @export
 fars_read_years <- function(years) {
-  require(magrittr)
   lapply(years, function(year) {
     file <- make_filename(year)
     tryCatch({
@@ -77,13 +82,16 @@ fars_read_years <- function(years) {
 #'
 #' @importFrom dplyr bind_rows group_by summarize
 #' @importFrom tidyr spread
+#' @importFrom magrittr %>%
 #'
 #' @inheritParams fars_read_years
 #'
 #' @return A data frame summarising number of accidents by month and year.
 #'
 #' @examples
+#' \dontrun{
 #' fars_summarize_years(c(2013, 2014, 2015))
+#' }
 #'
 #' @export
 fars_summarize_years <- function(years) {
@@ -110,7 +118,9 @@ fars_summarize_years <- function(years) {
 #' @return A map with accidents plotted on the map for the selected year and state number.
 #'
 #' @examples
+#' \dontrun{
 #' fars_map_state(24, 2013)
+#' }
 #'
 #' @export
 fars_map_state <- function(state.num, year) {

@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output: "md_document"
 vignette: >
   %\VignetteIndexEntry{Using the package}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::md_document}
   %\VignetteEncoding{UTF-8}
 ---
 

@@ -1,4 +1,4 @@
 library(testthat)
 library(FirstRPackage)
 
-test()
+test_check("FirstRPackage")
