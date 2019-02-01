@@ -17,6 +17,8 @@ This is a simple function that reads a file by taking filename as input. If a fi
 stops with the message "file 'filename' does not exist".
 }
 \examples{
+\dontrun{
 fars_read("accident_2013.csv.bz2")
+}
 
 }

@@ -20,6 +20,8 @@ then a message "no accidents to plot" would vbe shown. The "state.num" should be
 and show the message "invalid STATE number: 'state.num'".
 }
 \examples{
+\dontrun{
 fars_map_state(24, 2013)
+}
 
 }

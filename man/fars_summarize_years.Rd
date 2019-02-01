@@ -16,6 +16,8 @@ A data frame summarising number of accidents by month and year.
 This function calculates a summary of total accidents by month and year.
 }
 \examples{
+\dontrun{
 fars_summarize_years(c(2013, 2014, 2015))
+}
 
 }
