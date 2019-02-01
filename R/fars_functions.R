@@ -1,3 +1,5 @@
+globalVariables(c("MONTH", "n", "STATE", "year"))
+
 #' Read file
 #'
 #' This is a simple function that reads a file by taking filename as input. If a filename doesn't exist in the working directory then the function
