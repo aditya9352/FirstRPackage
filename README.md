@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/aditya9352/FirstRPackage.svg?branch=master)](https://travis-ci.org/aditya9352/FirstRPackage)
+
+
 This package helps users to read the files in the directory and
 summarise number of accidents by month and year. The package contains
 the functions fars\_read(), make\_filename(), fars\_read\_years(),
