@@ -2,10 +2,10 @@
 title: "Using the package"
 author: "Aditya Sharma"
 date: "`r Sys.Date()`"
-output: "md_document"
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Using the package}
-  %\VignetteEngine{knitr::md_document}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
